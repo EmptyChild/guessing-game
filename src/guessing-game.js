@@ -7,23 +7,23 @@ class GuessingGame {
         for (let i = min; i <= max; i++) {
             this.guessArr.push(i);
         }
-        this.LeftBorder = 0;
-        this.RightBorder = this.guessArr.length - 1;
+        //this.LeftBorder = 0;
+        //this.RightBorder = this.guessArr.length - 1;
     }
 
     guess() {
 
-        let guessIndex = Math.ceil((this.LeftBorder + this.RightBorder) / 2);
+        let guessIndex = Math.ceil((this.guessArr.length - 1) / 2);
         this.lastGuessIndex = guessIndex;
         return this.guessArr[guessIndex];
     }
 
     lower() {
-        this.RightBorder = this.lastGuessIndex;
+        this.guessArr.length = this.lastGuessIndex + 1;
     }
 
     greater() {
-        this.LeftBorder = this.lastGuessIndex;
+        this.guessArr.splice(0, this.lastGuessIndex);
     }
 }
 
